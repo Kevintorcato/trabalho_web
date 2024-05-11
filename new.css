@@ -1,4 +1,5 @@
 :root {
+    /* Cores e estilos bases para o site */
     --bg-color-primary: rgba(0, 0, 0, 0.5);
     --bg-image-url: url('imagens/dimmed_image.png');
     --text-color-primary: aliceblue;
@@ -26,10 +27,10 @@
     --btn-radius: 5px;
     --badge-height: 140;
     --badge-width: 240;
-    
 }
 
 body {
+    /* Layout geral do corpo da página */
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
@@ -44,6 +45,7 @@ header {
 }
 
 header nav#top-menu {
+    /* Estilização do menu de navegação */
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     background-color: var(--header-bg-color);
@@ -58,6 +60,7 @@ header nav#top-menu ul li {
 }
 
 header nav#top-menu ul li a {
+    /* Estilos para os links do menu */
     color: var(--header-link-color);
     display: block;
     text-align: center;
@@ -65,10 +68,12 @@ header nav#top-menu ul li a {
 }
 
 header nav#top-menu ul li a:hover {
+    /* Estilos para os links do menu ao passar o mouse */
     background-color: var(--header-link-hover-bg);
     color: var(--header-link-hover-color);
 }
 main {
+    /* Configuração da grade principal */
     display: grid;
     width: 100%;
     height: 100vh;
@@ -76,12 +81,15 @@ main {
     grid-template-rows: var(--main-grid-rows);
     gap: var(--main-gap);
 }
+
 @keyframes fadeInImage {
+    /* Animação para fazer a imagem aparecer gradualmente */
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
 #delayed-image {
+    /* Configuração da imagem que usará a animação */
     opacity: 0;
     animation: fadeInImage var(--fade-in-duration) ease-in-out var(--fade-in-delay) forwards;
     max-width: 100%;
@@ -91,108 +99,114 @@ main {
 }
 
 .image-container {
+    /* Estilização do contêiner da imagem */
     grid-column: 2;
     grid-row: 1;
     width: 25vw;
     margin-top: 15vw;
     justify-self: center;
-   
 }
 
 .image-container img {
+    /* Estilos básicos para imagens dentro do contêiner */
     width: 100%;
     height: auto;
     transition: transform 0.5s ease;
 }
 
 .image-container img:hover {
+    /* Efeito de zoom ao passar o mouse na imagem */
     transform: scale(var(--image-scale-hover));
 }
 
 #texto-maquina {
+    /* Estilo para o texto principal na página */
     grid-column: 1/-1;
     grid-row: 1;
     justify-self: center;
     text-align: center;
-   
 }
+
 #centro {
+    /* Estilização para o centro da seção principal */
     grid-column: 1/-1;
-    grid-row: 2 ;
+    grid-row: 2;
     font-size: 3vw;   
 }
 
 #conteiner-texto {
+    /* Estilos para um contêiner de texto genérico */
     grid-column: 1/-1;
     grid-row: 1/-1;
     justify-self: center;
     display: grid;
     grid-template-columns: 2fr 2fr; /* Duas colunas iguais */
 }
-.texto-portifolio{
-    grid-column: 1 / span 3; /* Ocupa duas colunas */
-    grid-row: 2 /span 3;
-    color: var(--text-color-primary);
-    font-size: var(--font-size-large);
-    text-align: var(--text-align-center);
-    overflow-y: scroll;
-    padding: 0px 100px 0px;
-}
-
-.texto {
-    grid-column: 1 / span 3; /* Ocupa duas colunas */
-    grid-row: 2 /span 3;
-    color: var(--text-color-primary);
-    font-size: var(--font-size-large);
-    text-align: var(--text-align-center);
-    overflow-y: scroll;
-    padding: 0px 100px 0px;
-}
-
-.texto-portifolio::-webkit-scrollbar {
-    display: none; /* Oculta a barra de rolagem para todos os navegadores que suportam ::-webkit-scrollbar */
-}
 
 .texto-portifolio {
-    -ms-overflow-style: none; /* Para IE e Edge */
-    scrollbar-width: none; /* Para Firefox */
-}
-.texto::-webkit-scrollbar {
-    display: none; /* Oculta a barra de rolagem para todos os navegadores que suportam ::-webkit-scrollbar */
+    /* Estilos específicos para texto de portifólio */
+    grid-column: 1 / span 3; /* Ocupa três colunas */
+    grid-row: 2 / span 3;
+    color: var(--text-color-primary);
+    font-size: var(--font-size-large);
+    text-align: var(--text-align-center);
+    overflow-y: scroll;
+    padding: 0px 100px 0px;
 }
 
 .texto {
+    /* Estilos para texto geral */
+    grid-column: 1 / span 3; /* Ocupa três colunas */
+    grid-row: 2 / span 3;
+    color: var(--text-color-primary);
+    font-size: var(--font-size-large);
+    text-align: var(--text-align-center);
+    overflow-y: scroll;
+    padding: 0px 100px 0px;
+}
+
+.texto-portifolio::-webkit-scrollbar, .texto::-webkit-scrollbar {
+    /* Oculta a barra de rolagem para navegadores que suportam ::-webkit-scrollbar */
+    display: none;
+}
+
+.texto-portifolio, .texto {
+    /* Estilos adicionais para navegadores específicos */
     -ms-overflow-style: none; /* Para IE e Edge */
     scrollbar-width: none; /* Para Firefox */
 }
 
 #badge1, #badge2, #badge3 {
+    /* Estilos para os badges de certificação */
     background-color: var(--text-color-primary);
     --badge-width: 150;
     --badge-height: 240;
     align-items: center;
-
 }
 
 #badge1 {
+    /* Posicionamento específico para o primeiro badge */
     grid-column: 1;
     grid-row: 2;
     justify-self: end;
 }
 
 #badge2 {
+    /* Posicionamento para o segundo badge */
     grid-column: 2;
     grid-row: 2;
     justify-self: center;
 }
 
 #badge3 {
+    /* Posicionamento para o terceiro badge */
     grid-column: 3;
     grid-row: 2;
     justify-self: start;
 }
 
 #badge4 {
+    /* Estilos e posicionamento para um quarto badge */
     grid-column: 2;
     grid-row: 3;
     width: 150px;
@@ -201,7 +215,9 @@ main {
     align-self: center;
     background-color: var(--badge-bg-color);
 }
+
 .form-container {
+    /* Estilização para o contêiner de formulário */
     grid-column: 2;
     grid-row: 2;
     display: flex;
@@ -217,6 +233,7 @@ main {
 }
 
 input[type="text"], input[type="email"], textarea {
+    /* Estilos para inputs e textarea */
     width: 200px;
     height: 15px;
     margin: 0 0;
@@ -228,11 +245,13 @@ input[type="text"], input[type="email"], textarea {
 }
 
 textarea {
+    /* Estilos específicos para textarea */
     height: 100px;
     resize: none;
 }
 
 .whatsapp-container {
+    /* Contêiner para o botão do WhatsApp */
     grid-column: 2;
     grid-row: 3;
     display: flex;
@@ -241,6 +260,7 @@ textarea {
 }
 
 .whatsapp-btn {
+    /* Estilos para o botão do WhatsApp */
     background-color: var(--btn-whatsapp-bg-color);
     color: var(--btn-whatsapp-color);
     padding: var(--btn-padding);
@@ -253,8 +273,10 @@ textarea {
 }
 
 .whatsapp-btn:hover {
+    /* Estilos para o botão do WhatsApp ao passar o mouse */
     background-color: var(--btn-whatsapp-hover-bg);
 }
+
 @media (min-width: 768px) {
     
     .texto-portifolio{
@@ -285,19 +307,57 @@ textarea {
                 
     }
 }
-@media (max-width: 468px) {
+@media (min-width: 768px) {
+    /* Estilos para dispositivos com largura mínima de 768 pixels */
     .texto-portifolio{
+        /* Ajustes específicos para a seção de portifólio em telas maiores */
+        grid-column: 1 / span 3;
+        grid-row: 1/-1;
+        color: var(--text-color-primary);
+        font-size: 2vw;
+        margin-top: 10vw;
+        padding: 20px 100px 100px;
+        
+    }
+    .texto {
+        /* Estilos para textos em geral em telas maiores */
+        grid-column: 2;
+        grid-row: 1/-1;
+        color: var(--text-color-primary);
+        font-size: 2vw;
+        margin-top: 10vw;
+        padding: 20px 0px 0px;
+                
+    }
+
+    .image-container {
+        /* Ajustes para contêiner de imagem em dispositivos largos */
+        grid-column: 3;
+        grid-row: 1 / span 2;
+        width: 25vw;
+        justify-self: center;
+        align-self: center;
+                
+    }
+}
+
+@media (max-width: 468px) {
+    /* Estilos para dispositivos com largura máxima de 468 pixels */
+    .texto-portifolio{
+        /* Ajustes para a seção de portifólio em telas menores */
         grid-column: 1/-1;
         grid-row: 2 / span 3;
         padding: 0vw 15vw 15vw; 
     }
     .texto {
+        /* Estilos para textos em telas menores */
         grid-column: 1/-1;
         grid-row: 2 / span 3;
         padding: 0vw 15vw 0vw;   
     }
 
     .image-container {
+        /* Ajustes para o contêiner de imagem em dispositivos menores */
         grid-column: 2;
         grid-row: 1;
         width: 30vw;
@@ -305,11 +365,13 @@ textarea {
                
     }
     #badge1, #badge2, #badge3, #badge4 {
-        width: 105;
+        /* Estilos para badges em telas menores */
+        width: 105px;
        
         align-self: start;
     }
     #badge4 {
+        /* Ajustes específicos para o quarto badge em telas menores */
         height: 85px;  
     }
 }

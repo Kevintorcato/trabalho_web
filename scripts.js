@@ -1,15 +1,21 @@
+// Aguarda o carregamento completo do documento
 document.addEventListener('DOMContentLoaded', function() {
-    const targetElement = document.getElementById('texto-maquina'); // Seleciona o elemento que contém o texto
-    const originalHTML = targetElement.innerHTML; // Armazena o HTML original
-    targetElement.innerHTML = ''; // Limpa o conteúdo inicial para iniciar a animação
-    let index = 0; // Inicializa o índice para percorrer o HTML
-    let tag = false; // Flag para controlar se estamos dentro de uma tag HTML
+    // Seleciona o elemento que contém o texto
+    const targetElement = document.getElementById('texto-maquina');
+    // Armazena o HTML original do elemento
+    const originalHTML = targetElement.innerHTML;
+    // Limpa o conteúdo inicial para iniciar a animação de digitação
+    targetElement.innerHTML = '';
+    // Inicializa o índice para percorrer o HTML
+    let index = 0;
+    // Flag para controlar se estamos dentro de uma tag HTML
+    let tag = false;
 
-    // Função para adicionar caracteres um a um, incluindo HTML
+    // Função que adiciona caracteres um a um, incluindo HTML
     function typeEffect() {
         if (index < originalHTML.length) {
             let char = originalHTML.charAt(index);
-            
+
             // Verifica se o caractere é o início ou o fim de uma tag HTML
             if (char === '<') tag = true;
             if (char === '>') {
@@ -17,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 char = originalHTML.charAt(index); // Inclui o fechamento da tag antes de pausar
             }
 
+            // Adiciona o caractere ao HTML do elemento
             targetElement.innerHTML += char;
             index++;
             
@@ -25,18 +32,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    typeEffect(); // Inicia o efeito de digitação
+    // Inicia o efeito de digitação
+    typeEffect();
 });
 
-
-
+// Função auto-executável para carregar emblemas do Credly
 (function(){
     var e, t, a, d, r, i, m, n, u, o, c;
+    // Define a versão do script
     window.CREDLY_EMBED_JS_LOADER_VERSION="20210331";
     e="www.credly.com";
+    // Função para validar o host do emblema
     o=function(e){
         return null != e && /(.*\.credly.com$|(acclaim\.local|localhost|web):500[0-1]$)/.test(e) ? e : void 0;
     };
+    // Função para encontrar todos os elementos que possuem um certo atributo de dados
     r=function(e){
         if(null != document.querySelectorAll) return document.querySelectorAll("[data-"+e+"]");
         var l = [], d, r;
@@ -46,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         return l;
     };
+    // Encontra todos os elementos com 'data-share-badge-id'
     m = r("share-badge-id");
     for(i = 0, n = m.length; i < n; i++){
         d = m[i];
@@ -57,12 +68,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 }).call(this);
 
+// Adiciona um ouvinte de eventos ao formulário para controlar o envio
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('contact-form').addEventListener('submit', function(event) {
         event.preventDefault(); // Impede o envio do formulário
-        alert('As informações foram enviadas com sucesso!');
+        alert('As informações foram enviadas com sucesso!'); // Exibe uma mensagem de sucesso
         window.location.reload(); // Recarrega a página após fechar o alerta
     });
 });
-
-

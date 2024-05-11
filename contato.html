@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+    <link rel="stylesheet" href="new.css"> <!-- CSS -->
+    <script src="scripts.js"></script> <!-- JavaScript -->
+</head>
+<body>
+    <header>
+        <nav id="top-menu">
+            <ul>
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="sobre.html">Sobre Mim</a></li>
+                <li><a href="formacao.htm">Formação</a></li>
+                <li><a href="portifolio.html">Portfólio</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 id="texto-maquina">Entre em Contato</h1>
+
+        <div class="form-container">
+            <form id="contact-form" method="POST">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>    
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>  
+                <label for="message">Mensagem:</label>
+                <textarea id="message" name="message" required maxlength="300" placeholder="Máximo de 300 caracteres"></textarea>    
+                <br>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    
+        <!-- Botão WhatsApp configurável -->
+        <div class="whatsapp-container">
+            <a class="whatsapp-btn" href="https://api.whatsapp.com/send?phone=5518981388794&text=Olá! Gostaria de mais informações." target="_blank">
+                Entre em contato via WhatsApp
+            </a>
+        </div>
+    </main>
+    
+</body>
+</html>
